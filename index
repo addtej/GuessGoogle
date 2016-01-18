@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Guess Google</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+
+  <style type="text/css">
+  
+
+
+  span {
+  	color: blue;
+  	margin-left: 5px;
+  }
+  </style>
+
+
+
+</head> 
+<body>
+	<div class="logo" style="margin-top:12%">
+		<center><a href="play.html"><img src="logo.png"> </a><br>
+		<a href="play.html"><img src="search.png">	</a><br><br>
+		<button type="button" class="btn btn-default">Google Search</button>
+			<input type="button" href="play.html" class="btn btn-default" value="I'm Feeling Lucky" >
+			<br><br>
+			Categories offered: <a href="play.html"><span>Sports</span> <span>General</span>  <span>Celebrities</span> <span>Movies</span></a> 
+
+		</center>
+	</div>	
+
+	
+
+</body>
+</html>  
