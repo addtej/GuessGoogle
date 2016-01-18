@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Guess Google</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+
+
+  <style type="text/css">
+  /*#quest{display:none;}*/
+
+  a {
+    color: blue;
+    margin-left: 5px;
+  }
+  </style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#submitButton").click(function(){
+        $("#quest").hide();
+        $("#ans").hide();
+        $("#submitButton").hide();
+        $(".inputQuery").hide();
+        $("#nextClick").show();
+
+    });
+
+});
+
+
+</script>
+
+
+<style type="text/css">
+  .inputQuery {
+    border: thin solid #CCC;
+    padding: 8px;
+    width: 55%;
+    height: auto;
+
+  }
+
+  .queryStyle {
+    font-weight: bold;
+    text-transform: lowercase;
+    font-size: 20px;
+    text-align: left;
+    line-height: 22px;
+    display: block-inline;
+    color: #222;
+
+  }
+
+  .inputStyle {
+    
+    /*margin-left: 6px;*/
+    text-transform: lowercase;
+    font-size: 17px;
+    text-align: left;
+    line-height: 19px;
+    display: block-inline;
+    color: #222;
+
+  }
+
+  input[type=text] {
+    border: 2px solid white;
+  }
+
+  input[type=text]:focus {
+    outline: none !important; 
+
+  }
+
+  .btn-primary {
+    background-color: #4285f4;
+  }
+
+  nav {
+    background-color:#f1f1f1 ;
+    height: 35px;
+  }
+  </style>
+
+
+</head> 
+<body>
+<nav></nav>
+ <div style="margin-top:4%"></div>
+ <center><a href="1.html"><img src="logo.png"> </a><br><br>
+  <center style="font-color:gray; font-family:Lato; font-size:18px; " > Guess How Google will Autocomplete the query</center><br><br>
+     <div class="inputQuery" id="inputQuery" style="margin:auto" >
+  <span id="quest" class="queryStyle"></span>
+  <span><input type="text" id="ans"  class="inputStyle"  value="" placeholder="input your answer"></span>
+</div>
+    <center><br>
+  <button type="button" class="btn btn-primary" id="submitButton" onclick="getTheValueOfInput()">Submit</button><br>
+
+  <!--<button type="button" id="submitButton" onclick="nextQuestion()">Next</button><br>-->
+ <!--Answer: <span id="showvalue"> </span> <br>
+  option1: <span id="optone"></span><br>-->
+  <br> 
+  <h2 style="font-family:Bitter; color:#ffaf15" id="points"></h2> <br>
+  <h3 style="font-family:Bitter; color:#4285f4">Your Score: <span id="score">0</span></h3> <br><br>
+  <div id="myDiv4"></div>
+  <div id="myDiv5"></div>
+
+
+
+ 
+
+<script>
+//-------------------------------Timer script ----------------------
+
+function countDown(secs,elem) {
+  var element = document.getElementById(elem);
+  element.innerHTML = "<b>TIMER : </b>"+secs+"<b> Seconds</b>";
+  if(secs < 1) {
+    clearTimeout(timer);
+   // element.innerHTML = '<h2>Countdown Complete!</h2>';
+    document.write("<div style='margin-top:5%'><center><h1>TIMES'S UP</h1> <br> <input type='button' class='btn btn-default' value='Play Again' onclick='window.location.reload()'> </center></div>");
+   
+  }
+  secs--;
+  var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000);
+}
+
+</script>
+<div id="status" style="font-size:30px"></div>
+<script>countDown(90,"status");</script>
+
+ </center>
+
+<script type="text/javascript">
+
+var score=0;
+
+  var q = ["how to", "How to tie", "cricket is", "giraffes are", "Sachin Tendulkar", "rahul gandhi is", "arvind kejriwal is", "how to plant a", "when is the next", "justin bieber is", "can i perform my own", "how do you get", "donald trump is", "how do you fake a", "messi is"]; 
+
+
+  var optionOne =["kiss", "a tie", "my life", "gay", "record", "joker", "honest", "weed", "full moon", "gay", "liposuction", "dengue", "batman" , "college degree", "a legend"]; 
+  var optionTwo =["lose weight", "a scarf", "national game of which country", "dumb", "highest score", "british", "pakistani agent", "mushroom", "leap year", "married", "marriage", "pregnant", "democrat", "heart attack", "a dog" ]; 
+  var optionThree =["make pizza", "a bun", "my passion", "heartless creatures", "images", "not a politician", "corrupt", "tree", "olympics", "dating who", "wedding", "aids", "our drunk neighbour", "headache", "better than ronaldo"]; 
+
+
+
+
+
+//-----------------------------start function -------------------------
+   function nextQuestion () {
+
+    r = Math.floor(Math.random() * q.length); 
+  document.getElementById("quest").innerHTML= q[r] ;
+ //document.getElementById("optone").innerHTML= optionOne[r] ;
+
+}
+
+
+
+
+//--------------------------second function----------------------------------
+function getTheValueOfInput() {
+
+ 
+  var x= document.getElementById("ans").value;
+ //document.getElementById("showvalue").innerHTML = x;
+ 
+  if (x == optionOne[r]) {
+    score+=100;
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("points").innerHTML = "Wohooo! Right on the money! <br> You scored 100 points";
+   
+    document.getElementById("myDiv4").innerHTML = "<button type='button' class='btn btn-default' id='nextClick' onclick='abcd()'>Next Question</button>";
+  }
+
+   else if (x == optionTwo[r]) {
+    score+=50;
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("points").innerHTML = "Take 50 Points for that. ";
+    document.getElementById("myDiv4").innerHTML = "<button type='button' class='btn btn-default' id='nextClick' onclick='abcd()'>Next Question</button>";
+  }
+
+   else if (x == optionThree[r]) {
+    score+=25;
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("points").innerHTML = "Google agrees with you, but only just. You get 25 points";
+    document.getElementById("myDiv4").innerHTML = "<button type='button' class='btn btn-default' id='nextClick' onclick='abcd()'>Next Question</button>";
+  }
+
+   else {
+    score+=5;
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("points").innerHTML = "No sync between you and Google. You can do better";
+    document.getElementById("myDiv4").innerHTML = "<button type='button' class='btn btn-default' id='nextClick' onclick='abcd()'>Next Question</button>";
+   }
+
+};
+
+
+//---------------------------------------------------------------------------
+
+function abcd(){
+ //document.getElementById("myDiv4").innerHTML = "abcded";
+ nextQuestion();
+ document.getElementById("quest").style.display = "block";
+ document.getElementById("ans").style.display = "block";
+ document.getElementById("inputQuery").style.display = "block";
+ document.getElementById("nextClick").style.display = "none";
+
+ document.getElementById("ans").value = "";
+ document.getElementById("submitButton").style.display = "block";
+ document.getElementById("points").style.display = "none";
+ //document.getElementById("ans").reset();
+ //return false;
+ //document.getElementById('ans').value='';
+ 
+}
+
+$(document).ready(function(){
+    $("#nextClick").click(function(){
+        $("#quest").attr("style", "display: block !important")
+    });
+
+});
+
+
+nextQuestion();
+  
+
+
+</script>
+
+</body>
+</html>  
